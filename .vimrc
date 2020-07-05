@@ -2,7 +2,7 @@
 " Location            :         ~/
 " Author              :         macr0she11(Arjun V)
 " Authored Date       :         2020/05/20
-" Last Modified Date  :         2020/05/20
+" Last Modified Date  :         2020/07/05
 
 set nocompatible            " Set compatibility to Vim only.
 
@@ -38,4 +38,3 @@ set hlsearch                " Highlight matching search pattern.
 set ruler
 
 highlight Comment ctermfg=green
-
