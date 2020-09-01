@@ -1,8 +1,8 @@
 # File Name           :        .bash_aliases
 # Location            :         ~/
-# Author              :         macr0she11(Arjun V)
+# Author              :         macr0she11(Arjun Vijayanatha Kurup)
 # Authored Date       :         2020/05/20
-# Last Modified Date  :         2020/07/05
+# Last Modified Date  :         2020/09/01
 
 # bash custom
 alias ls='ls -la'
@@ -39,5 +39,17 @@ alias dmigrate='python manage.py migrate'
 # vi to vim
 alias vi='vim'
 
+# conda custom commands
+## conda general environment commands
+alias cactive='conda activate'
+alias cdeactive='conda deactivate'
+alias jup='jupyter notebook'
+alias lab='jupyter lab'
+alias createreqt='touch requirements.txt && pip freeze > requirements.txt'
+alias installreq='pip install -r requirements.txt'
 
-
+## conda custom environment commands 
+alias ccreate='conda create --name env python'
+alias cact='conda activate env *'
+alias clist='conda list --name env'
+alias cfreeze='conda list --export requirements.txt'
