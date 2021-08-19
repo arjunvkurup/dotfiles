@@ -1,15 +1,25 @@
 Config { font = "xft:Inconsolata:size=16"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = TopB
        , bgColor = "black"
        , fgColor = "grey"
+       , alpha = 255
        , position = Top
-       , border = NoBorder
-       , borderColor = "grey"
+       , textOffset = -1
+       , iconOffset = -1
        , lowerOnStart = True
-       , commands = [ Run Battery ["-t","<left>% ","-L","25","-H","75","-h","green","-n","yellow","-l","red"] 10
-                    , Run Date "%a %b %_d %Y %H:%M" "date" 10
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Battery ["-t","<left>% ","-L","25","-H","75","-h","green","-n","y    ellow","-l","red"] 10
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc> | %battery%"
+       , template = " %StdinReader%  }{ <fc=#ee9a00>%date%</fc>| %battery%"
        }

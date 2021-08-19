@@ -87,6 +87,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Color Schemes

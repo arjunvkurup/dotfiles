@@ -53,3 +53,8 @@ alias ccreate='conda create --name env python'
 alias cact='conda activate env *'
 alias clist='conda list --name env'
 alias cfreeze='conda list --export requirements.txt'
+
+alias docker_build='docker-compose -f local.yml up -d --build'
+alias docker_run='docker-compose -f local.yml run django'
+
+source $HOME/.local/bin/
