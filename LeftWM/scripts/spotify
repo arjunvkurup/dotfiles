@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ "$(playerctl status)" = "Playing" ]; then
+  title=`exec playerctl metadata xesam:title`
+  artist=`exec playerctl metadata xesam:artist`
+  echo " ${title::20}.. - ${artist::10}"
+elif [ "$(playerctl status)" = "" ] || [ "$(playerctl status)" = "No players found" ]; then  echo "" 
+else
+  echo ""
+fi
