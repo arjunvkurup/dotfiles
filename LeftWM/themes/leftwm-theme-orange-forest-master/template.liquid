@@ -1,0 +1,11 @@
+{% for tag in workspace.tags %}
+{% if tag.visible  %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{F#282828}%{B#98a8c5}  {{tag.name}}  %{B-}%{F-}
+%{A}
+{% else tag.focused %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{F#98a8c5}%{B#282828}{{tag.name}}  %{B-}%{F-}
+%{A}
+{% endif %}
+{% endfor %}
