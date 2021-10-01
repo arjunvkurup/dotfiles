@@ -14,6 +14,8 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.WorkspaceNames
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Layout.Gaps
+import XMonad.Layout.Spacing
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -30,7 +32,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 3 
+myBorderWidth   = 0 
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -182,7 +184,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = spacingRaw False (Border 0 0 10 10) True (Border 0 0 10 10) True $ gaps [(U,30), (R,10), (L,10), (D, 10)] $ avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -194,7 +196,7 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
      ratio   = 1/2
 
      -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+     delta   = 1/100
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -254,13 +256,15 @@ myStartupHook = do
         setWMName "LG3D"
 
 
+myXmobarrc = " -x 1 $HOME/.xmobarrc" 
+
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-    xmproc <- spawnPipe "xmobar -x 1 /home/arjun/.xmobarrc"
+    xmproc <- spawnPipe ("xmobar " <++> myXmobarrc)
     xmonad $ docks $ defaultConfig
         {
       -- simple stuff
@@ -280,7 +284,7 @@ main = do
       -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
-        handleEventHook    = myEventHook,
+        handleEventHook    = myEventHook, 
         startupHook        = myStartupHook
         }
 

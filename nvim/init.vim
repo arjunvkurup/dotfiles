@@ -25,6 +25,9 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
+" Set terminal colours
+set termguicolors
+
 " Auto intendation enabled
 set autoindent
 
@@ -64,7 +67,9 @@ set list lcs=tab:\|\
 set list
 
 " Set Custom font
-set guifont=Roboto\ Mono\ for\ Powerline\ 14
+set guifont=FiraCode\ Nerd\ Font\ Mono\ 14
+
+set noshowmode              " Remove the --INSERT-- Line
 
 highlight Comment ctermfg=green
 
@@ -79,26 +84,39 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'airblade/vim-gitgutter'
-" Plug 'arcticicestudio/nord-vim'  " Nord theme
-Plug 'ayu-theme/ayu-vim'
+"Plug 'ayu-theme/ayu-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'Yggdroot/indentLine'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'rust-lang/rust.vim'
+Plug 'junegunn/fzf'
+Plug 'itchyny/vim-gitbranch'
+Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 " Color Schemes
-" colorscheme nord
 
-set termguicolors
-let ayucolor='dark'
-colorscheme ayu
+"set termguicolors
+colorscheme tokyonight
+hi Normal guibg=NONE ctermbg=NONE
+let g:tokyonight_style = "dark"
+let g:tokyonight_transparent = 1 
+
+" set transparency to neovim
+hi Normal guibg=NONE ctermbg=NONE
 
 " Calling lua
 lua require('init')
+lua require('lualine-conf')
 
 " NERDCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
@@ -115,3 +133,37 @@ let g:indentLine_first_char = '│'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'tokyonight',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-q> :tabclose<CR>
+
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
+
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
+" Or map each action separately
+nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
