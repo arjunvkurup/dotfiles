@@ -84,11 +84,9 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'airblade/vim-gitgutter'
-"Plug 'ayu-theme/ayu-vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-"Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/indentLine'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
