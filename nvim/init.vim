@@ -84,8 +84,8 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'airblade/vim-gitgutter'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'hoob3rt/lualine.nvim'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/indentLine'
 Plug 'nvim-lua/popup.nvim'
@@ -95,6 +95,7 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'kyazdani42/nvim-web-devicons'
 "Plug 'romgrk/barbar.nvim'
@@ -104,10 +105,8 @@ call plug#end()
 " Color Schemes
 
 "set termguicolors
-colorscheme tokyonight
+colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
-let g:tokyonight_style = "dark"
-let g:tokyonight_transparent = 1 
 
 " set transparency to neovim
 hi Normal guibg=NONE ctermbg=NONE
@@ -134,7 +133,7 @@ let g:indentLine_setColors = 0
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -165,3 +164,9 @@ nmap <F5> <Plug>(lcn-menu)
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
+
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+nnoremap <C-p> :Telescope git_files<CR>
+
+nnoremap <C-l> :LazyGit<CR>
