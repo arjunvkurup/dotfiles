@@ -38,6 +38,7 @@ alias dmigrate='python manage.py migrate'
 
 # vi to vim
 alias vi='vim'
+alias lg='lazygit'
 
 # conda custom commands
 ## conda general environment commands
@@ -57,4 +58,8 @@ alias cfreeze='conda list --export requirements.txt'
 alias docker_build='docker-compose -f local.yml up -d --build'
 alias docker_run='docker-compose -f local.yml run django'
 
+alias qsheen='cd /home/arjunv/Documents/Work/qsheen/ && source venv/bin/activate'
+alias gmg='/home/arjunv/Documents/Work/GetMedGo/ && source venv/bin/activate'
+
 source $HOME/.local/bin/
+export PATH=/opt/apache-maven-3.8.4/bin:$PATH
