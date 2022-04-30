@@ -1,8 +1,8 @@
 # File Name           :        .bash_aliases
 # Location            :         ~/
 # Author              :         macr0she11(Arjun Vijayanatha Kurup)
-# Authored Date       :         2020/05/20
-# Last Modified Date  :         2020/09/01
+# Authored Date       :         2021/05/20
+# Last Modified Date  :         2022/03/17
 
 # bash custom
 alias ls='ls -la'
@@ -59,7 +59,8 @@ alias docker_build='docker-compose -f local.yml up -d --build'
 alias docker_run='docker-compose -f local.yml run django'
 
 alias qsheen='cd /home/arjunv/Documents/Work/qsheen/ && source venv/bin/activate'
-alias gmg='/home/arjunv/Documents/Work/GetMedGo/ && source venv/bin/activate'
+alias gmg='cd /home/arjunv/Documents/Work/GetMedGo/ && source venv/bin/activate'
+alias todo='nvim /home/arjunv/Documents/Work/ToDo/worklog.md'
 
 source $HOME/.local/bin/
 export PATH=/opt/apache-maven-3.8.4/bin:$PATH

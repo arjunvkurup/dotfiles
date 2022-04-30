@@ -1,11 +1,8 @@
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
-
-# DISABLE_UPDATE_PROMPT="true"
+autoload -U colors && colors
+PS1="%B%F{034}%n@%m%f%b:%B%F{019}%~ %#%f%b "
 
 plugins=(
     git
@@ -17,8 +14,6 @@ plugins=(
 
 source $HOME/.bash_aliases
 
-source $ZSH/oh-my-zsh.sh
-
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -28,7 +23,8 @@ else
     export EDITOR='nvim'
 fi
 
+# alias for kitty during ssh
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"

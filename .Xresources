@@ -1,0 +1,12 @@
+
+xterm*faceName: JetBrainsMono Nerd Font
+xterm*faceSize: 12
+xterm*loginShell: true
+xterm*saveLines: 4000
+xterm*termName: xterm-color
+xterm*eightBitInput: false
+xterm*foreground: rgb:d9/d4/d4
+xterm*background: #0c1925
+xterm*boldMode: false
+
+
