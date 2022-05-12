@@ -1,0 +1,32 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$hostname\
+$directory\
+$character"""
+
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold #8bb1d7)"
+trim_at = ".companyname.com"
+disabled = false
+
+
+[username]
+style_user = "#b1d78b bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[character] # The name of the module we are configuring is "character"
+format = '[\$ ](#dc8cc3)'
+
+[directory]
+style="#36836d"
+format = '[\[$path\]]($style)'
+truncate_to_repo = false
+home_symbol = "~"
+repo_root_format = '[\[$before_root_path][$repo_root]($repo_root_style)[$path]($style)\]'

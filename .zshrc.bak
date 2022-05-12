@@ -1,0 +1,43 @@
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+
+
+autoload -U colors && colors
+
+plugins=(
+    git
+    history-substring-search
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-z
+)
+
+source $HOME/.bash_aliases
+
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+fi
+
+
+HISTSIZE=50000
+SAVEHIST=10000
+HISTFILE="$HOME/.cache/zsh/zsh_history"
+
+# Share history between terminals
+setopt SHARE_HISTORY
+# Don't store history entries that start with a space
+setopt HIST_IGNORE_SPACE
+# Don't close the terminal when pressing CTRL+D
+setopt IGNORE_EOF
+
+# alias for kitty during ssh
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+#
+eval "$(starship init zsh)"
