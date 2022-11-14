@@ -4,13 +4,15 @@ format = """
 $username\
 $hostname\
 $directory\
+$git_branch\
 $character"""
 
 
 [hostname]
 ssh_only = false
 format = "[$hostname](bold #8bb1d7)"
-trim_at = ".companyname.com"
+ssh_symbol = "🌏 "
+trim_at = "."
 disabled = false
 
 
@@ -30,3 +32,7 @@ format = '[\[$path\]]($style)'
 truncate_to_repo = false
 home_symbol = "~"
 repo_root_format = '[\[$before_root_path][$repo_root]($repo_root_style)[$path]($style)\]'
+
+[git_branch]
+symbol = "🌱 "
+format = " [$symbol$branch(:$remote_branch)]($style) "
